@@ -1,41 +1,268 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* === Google Fonts === */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Rock+Salt&display=swap");
+
+/* === Color Palette === */
+:root {
+  --seuss-red: #e63946;
+  --thing-blue: #6aaab7;
+  --sunny-yellow: #ffdd57;
+  --whimsical-black: #1d1d1d;
+  --soft-white: #fdfdfd;
+}
+
+/* === Reset + Global Styles === */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--soft-white);
+  color: var(--whimsical-black);
+  line-height: 1.6;
+  padding-bottom: 100px; /* prevent content from hiding behind fixed footer */
+}
+
+/* === Typography === */
+h1,
+h2 {
   text-align: center;
+  font-family: "Rock Salt", cursive;
+  color: var(--seuss-red);
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin: 10rem 0 2rem;
+  padding-top: 2rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* === Navbar === */
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--whimsical-black);
+  padding: 1rem 2rem;
+}
+
+.main-nav a {
+  color: var(--soft-white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.main-nav a:hover {
+  transform: rotate(-3deg) scale(1.1);
+  color: var(--sunny-yellow);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin-left: auto;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  width: 100px;
+  height: auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* === Page Wrapper (optional) === */
+.page-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--soft-white);
+  border-radius: 2rem;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* === Banner === */
+.banner-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  margin-top: 12rem;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+}
+
+/* === Books Grid === */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  justify-items: center;
+}
+
+.book-card {
+  background-color: var(--soft-white);
+  border: 2px dashed var(--seuss-red);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+}
+
+.book-card:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.book-title {
+  font-size: 1.2rem;
+  font-family: "Nunito", sans-serif;
+  color: var(--whimsical-black);
+}
+
+/* === Description Page === */
+.description-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--soft-white);
+  border-radius: 2rem;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.description-image {
+  max-width: 300px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.description-text {
+  max-width: 600px;
+  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
+  line-height: 1.7;
+}
+
+/* === Quotes Page === */
+.quotes-wrapper {
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--whimsical-black);
+}
+
+.quote-card {
+  max-width: 700px;
+  background-color: var(--soft-white);
+  border-right: 6px solid var(--seuss-red);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-family: "Nunito", sans-serif;
+  color: var(--whimsical-black);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.quote-author {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  color: var(--thing-blue);
+  text-align: center;
+}
+
+/* === Footer === */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0rem 2rem;
+  background-color: var(--whimsical-black);
+  margin-top: 10rem;
+  color: var(--soft-white);
+  font-size: 1rem;
+  z-index: 1000;
+}
+
+/* === Responsive Nav === */
+
+@media (max-width: 768px) {
+  .main-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 2.5rem;
+    margin: 10rem 0 2rem;
+    padding-top: 2rem;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  h2 {
+    font-size: 2 rem;
+    margin-bottom: 1rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0;
+    margin: 0;
+  }
 
-.read-the-docs {
-  color: #888;
+  .nav-links a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    width: 60px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
 }
